@@ -60,5 +60,8 @@ kic completion zsh > "$HOME/.oh-my-zsh/completions/_kic"
 echo "creating k3d cluster"
 kic cluster rebuild
 
+echo "installing flux to cluster"
+flux install --components-extra="image-reflector-controller,image-automation-controller"
+
 echo "on-create complete"
 echo "$(date +'%Y-%m-%d %H:%M:%S')    on-create complete" >> "$HOME/status"
